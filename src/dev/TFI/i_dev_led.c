@@ -118,7 +118,7 @@ int serial_init(int nCOM, int nBaud)
 {	
     struct termios newtio;
     char szCOM[20];
-    sprintf(szCOM,"/dev/ttyS%d",nCOM);	
+    sprintf(szCOM,"/dev/COM%d",nCOM);	
     g_hCOM[nCOM-1] = open(szCOM,O_RDWR | O_NOCTTY | O_NONBLOCK);
     if(g_hCOM[nCOM-1] < 0)
     {	

@@ -34,28 +34,30 @@ void I_DEV_KK_Printer_PrintBill(struct BILLPARAM *var_billparam)
 	struct tm *rtc_time;
 	time_t t = time(NULL);	
 	rtc_time = localtime(&t);	
-	serial_write(PRINTER_COM,KK_printfCommand_Title,4);	
-	serial_write(PRINTER_COM,KK_printfCommand_Rstart,2);	
+    serial_write(PRINTER_COM,KK_printfCommand_LineSp,3);	
+	//serial_write(PRINTER_COM,KK_printfCommand_Init,4);	
+	//serial_write(PRINTER_COM,KK_printfCommand_Rstart,2);	
 	memset(printContent,'\0',80);	
 	sprintf(printContent,"%s%c",GetBillTitle(),10);	
 	//echoic("printContent %s",printContent);
 	serial_write(PRINTER_COM,printContent,strlen(printContent));	
 	serial_write(PRINTER_COM,KK_printfCommand_LFSp,1);
-	serial_write(PRINTER_COM,KK_printfCommand_Rstart,2);
-	memset(printContent,'\0',40);	
-	sprintf(printContent,"     通行费收据%c",10);	
+	//serial_write(PRINTER_COM,KK_printfCommand_Rstart,2);
+	memset(printContent,'\0',80);	
+	sprintf(printContent,"               通行费收据%c",10);	
 	serial_write(PRINTER_COM,printContent,strlen(printContent));	
 	serial_write(PRINTER_COM,KK_printfCommand_LFSp,1);
 
-	serial_write(PRINTER_COM,KK_printfCommand_SubTitle,4);		
-	serial_write(PRINTER_COM,KK_printfCommand_Rstart,2);	
+	//serial_write(PRINTER_COM,KK_printfCommand_Init,4);		
+	//serial_write(PRINTER_COM,KK_printfCommand_Rstart,2);	
 
-	memset(printContent,'\0',40);	
+	memset(printContent,'\0',80);	
 
 	sprintf(printContent,"   站名         金额（元）       车型%c",10);	
 	serial_write(PRINTER_COM,printContent,strlen(printContent));	
 	
-	memset(printContent,'\0',40);	
+	serial_write(PRINTER_COM,KK_printfCommand_LFSp,1);
+	memset(printContent,'\0',80);	
 	if(var_billparam->Charge[3]=='/')
 	{
 		sprintf(printContent,"  %s        %s            %s%c",GetLanConfigPlazaDesc(),var_billparam->Charge,var_billparam->carType,10);	
@@ -68,18 +70,19 @@ void I_DEV_KK_Printer_PrintBill(struct BILLPARAM *var_billparam)
 	serial_write(PRINTER_COM,printContent,strlen(printContent));	
 	serial_write(PRINTER_COM,KK_printfCommand_LFSp,1);
 
-	serial_write(PRINTER_COM,KK_printfCommand_Init,4);		
-	serial_write(PRINTER_COM,KK_printfCommand_Rstart,2);
+	//serial_write(PRINTER_COM,KK_printfCommand_Init,4);		
+	//serial_write(PRINTER_COM,KK_printfCommand_Rstart,2);
 
-	memset(printContent,'\0',40);	
+	memset(printContent,'\0',80);	
 	sprintf(printContent," 收费员            时间          收据号%c",10);	
 	serial_write(PRINTER_COM,printContent,strlen(printContent));	
 	
-	memset(printContent,'\0',40);	
+	serial_write(PRINTER_COM,KK_printfCommand_LFSp,1);
+	memset(printContent,'\0',80);	
 	sprintf(printContent,"  %s     %02d-%02d-%02d %02d:%02d     %s%c",GetG_Number(),rtc_time->tm_year-100, rtc_time->tm_mon+1, rtc_time->tm_mday,rtc_time->tm_hour, rtc_time->tm_min,var_billparam->billNumber,10);	
 	serial_write(PRINTER_COM,printContent,strlen(printContent));	
 	serial_write(PRINTER_COM,KK_printfCommand_LFSp,1);		
-	serial_write(PRINTER_COM,KK_printfCommand_Rstart,2);	
+	//serial_write(PRINTER_COM,KK_printfCommand_Rstart,2);	
 	serial_write(PRINTER_COM,KK_printfCommand_LFSp,1);	
 	serial_write(PRINTER_COM,KK_printfCommand_LFSp,1);	
 	serial_write(PRINTER_COM,KK_printfCommand_LFSp,1);	
