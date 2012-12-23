@@ -137,6 +137,7 @@ int CDCWinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)
 				{
 					Setg_Violation(1);
 					AddMsgTotal_Violation();
+					AddExitESMsgTotal_Violation();
 					SendMessageWzCar(0);
 					SetWorkSationEndWz();
 					SetRingVoide(F);
