@@ -20,10 +20,12 @@
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -49,6 +51,9 @@
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>D:\Works\Linux\toolchain_R2_EABI\opt\ext-toolchain\lib\gcc\arm-none-linux-gnueabi\4.6.1\include-fixed;D:\Works\Linux\toolchain_R2_EABI\opt\ext-toolchain\lib\gcc\arm-none-linux-gnueabi\4.6.1\include;D:\Works\Linux\toolchain_R2_EABI\usr\arm-unknown-linux-gnueabi\sysroot\usr\include;$(ProjectDir)\src\ui\include;$(ProjectDir)\src\dev\TFI\include;$(ProjectDir)\src\dev\Print\include;$(ProjectDir)\src\messageBody\include;$(ProjectDir)\src\workflow\include;$(ProjectDir)\src\systemcontext\include;$(ProjectDir)\src\sysconfig\include;$(ProjectDir)\src\SQLite\include;$(ProjectDir)\src\SetConifgFile\include;$(ProjectDir)\src\RemoteControl\include;$(ProjectDir)\src\param\include;$(ProjectDir)\src\msgQueueToFile\include;$(ProjectDir)\src\logc\include;$(ProjectDir)\src\global\include;$(ProjectDir)\src\communication\include;$(ProjectDir)\src\dev\Weight\include;$(ProjectDir)\src\dev\include</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -277,6 +282,7 @@
     <ClInclude Include="src\global\include\serial.h" />
     <ClInclude Include="src\global\include\Version.h" />
     <ClInclude Include="src\global\include\videodev2.h" />
+    <ClInclude Include="src\messageBody\include\TrafficStat.h" />
     <ClInclude Include="src\parameter\include\FreeCarList.h" />
     <ClInclude Include="src\RemoteControl\include\RemoteControl.h" />
     <ClInclude Include="src\RemoteControl\include\UdpBase.h" />
@@ -379,7 +385,30 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="aclocal.m4" />
+    <None Include="AUTHORS" />
+    <None Include="autogen.sh" />
+    <None Include="build.sh" />
+    <None Include="ChangeLog" />
+    <None Include="configure" />
+    <None Include="configure.in" />
+    <None Include="Makefile.am" />
+    <None Include="Makefile.in" />
+    <None Include="missing" />
+    <None Include="NEWS" />
+    <None Include="README" />
+    <None Include="rebuild_debug" />
+    <None Include="src\Makefile.am" />
+    <None Include="src\Makefile.in" />
+    <None Include="Version" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileCompilerC="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileCompilerCXX="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileAR="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileRM="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileMKDIR="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileIntDir="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileDestDir="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileCFLAGS="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileCXXFLAGS="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileLDFLAGS="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteBuildCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteRebuildCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteCleanCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteDeployCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathRemoteBuildDirectory="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteBuildVariables="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bDeployBeforeStartDebugging="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_bDeployOnlyIfFileChanged="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathDeployFile="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathDeployTargetDirectory="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteSolutionBuildCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteSolutionRebuildCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteSolutionCleanCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteSolutionDeployCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathRemoteSolutionBuildDirectory="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteSolutionBuildVariables="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bSolutionDeployOnlyIfFileChanged="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathSolutionDeployFile="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathSolutionDeployTargetDirectory="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathCore="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathWorkingDirectory="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strLaunchArguments="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strLaunchEnvironment="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bStopInMain="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_strTarget="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathLoadProgramPath="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathExecutableOnTarget="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bServerAutoLaunch="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_bUseSysroot="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathDynamicLinker="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathServerLibraryPaths="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathServerPath="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bServerPortIsForwarded="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathExecutable="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathCustomPreLoadInitScript="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathCustomInitScript="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathCustomCondPreLoadInitScript="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathCondCustomInitScript="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strAdditionalDebuggerOptions="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathSourceDirectories="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathDebugInfoDirectory="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathSysrootOnHost="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathSysrootOnTarget="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathSharedLibraryDirectories="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strVisualizerProfile="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bSourceSession="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_bDisableHangReporter="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_bUseProtoCtl="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathProtoCtlLogFile="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathDebugger="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathToolchain="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bReuseStandardBuildCommand="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_strDebugHostLogin="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strBuildHostLogin="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strDebugTargetLogin="" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
