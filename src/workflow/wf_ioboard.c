@@ -27,10 +27,10 @@ void PassLineUP(void)
     }
     else
     {
-		if(0!=GetG_IsTuoche())
+		/*if(0!=GetG_IsTuoche())
 		{
 			return;
-		}
+		}*/
         WorkStation(S_PASSLINEUP);
     }
 }
@@ -48,16 +48,16 @@ void PassLineDown(void)
 		}
 		
 	}	
-	if(0!=GetG_IsTuoche())//如果不等于0，说明拖车没有处理完。 直接返回。
-    {
-		SetG_IsTuoche(0);
-        return;
-    }
+	
 	if (10==GetWorkState()||46==GetWorkState())
 	{
 		PassLineUP();
 	}
-	
+	if(0!=GetG_IsTuoche())//如果不等于0，说明拖车没有处理完。 直接返回。
+    {
+		//SetG_IsTuoche(0);
+        return;
+    }
     if(GetWorkState()==3||GetWorkState()==4|| GetWorkState()==7||51==GetWorkState()||10==GetWorkState()||46==GetWorkState())
     {
 			++YaxianquanNum;
