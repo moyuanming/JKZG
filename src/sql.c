@@ -1,11 +1,11 @@
-create
+ï»¿create
 table toll
-{ÊÕ·ÑÏîÄ¿Local2£¬
-local3£¬
-local 4£¬
-local 5£¬
-local6£¬
+{æ”¶è´¹é¡¹ç›®Local2ï¼Œ
+local3ï¼Œ
+local 4ï¼Œ
+local 5ï¼Œ
+local6ï¼Œ
 local 7
 local8}
-ÖÐÎÄ²âÊÔ
+ä¸­æ–‡æµ‹è¯•
 	cesi 
