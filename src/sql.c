@@ -9,3 +9,4 @@ local 7
 local8}
 中文测试
 	cesi 
+	EMRCV4
