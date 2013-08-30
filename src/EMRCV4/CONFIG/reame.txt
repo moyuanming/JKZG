@@ -1,0 +1,18 @@
+AppFunction.ini
+
+FunVideo
+0 是禁用任何视频 
+1 是使用程序内部启动视频窗口的方式  旧版arm车道机 使用
+2 是通过管道获取其它进程启动的视频窗口  新版arm车道机使用的方式
+3 X86下用so文件启动   x86的机型使用库文件liblane.cap.v4l.so 启动视频和抓拍
+
+
+VDMDLL  IOBoardDLL 
+RHY   新疆瑞华赢  时使用内置的IO板和字符叠加控制
+SAT   北京圣通 STA-VDM-01A 
+      必须配置 TTYCONFIG.ini 中的VDMCOM  VDMCOMSpeed IOBoardCOM IOBoardCOMSpeed
+
+
+Config.ini 
+
+CarTypeLen  填写1  是 一种车型 填写 2 是 吨位车型 根据吨位收费
