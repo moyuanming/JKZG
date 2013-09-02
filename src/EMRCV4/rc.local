@@ -1,3 +1,4 @@
 #/bin/sh!
 cd /EMRCV4/BIN
-Run.sh 
+./Run.sh 
+exit 0 
