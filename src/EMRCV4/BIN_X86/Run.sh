@@ -1,4 +1,4 @@
 #/bin/sh!
-./emrc_main
+./emrc_main &
 watch ./Uploader &
 watch ./Sync &
