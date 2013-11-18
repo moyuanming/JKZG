@@ -18,6 +18,7 @@ INCLUDES = \
 -I$(top_srcdir)/src/global/include  \
 -I$(top_srcdir)/src/systemcontext/include \
 -I$(top_srcdir)/src/workflow/include \
+-I$(top_srcdir)/src/dev/VPR/include \
 -I$(top_srcdir)/src/uiInterface/include \
 -I$(top_srcdir)/src/sysconfig/include \
 -I$(top_srcdir)/src/communication/include \
@@ -119,6 +120,11 @@ dev/Print/i_dev_S303_printer.c \
 dev/i_dev_vdm.c  \
 dev/i_dev_keyboard.c \
 dev/MIF_Interface.c \
+dev/i_dev_VPR.c \
+dev/VPR/i_dev_VPR_HW.c \
+dev/VPR/i_dev_VPR_HW_Src/config.c \
+dev/VPR/i_dev_VPR_HW_Src/srv.c \
+dev/VPR/i_dev_VPR_HW_Src/VPRSDK.c \
 parameter/ParameterCollect.c \
 parameter/ParameterYPKList.c \
 parameter/ParameterYHRateDescription.c \

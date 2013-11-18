@@ -96,6 +96,7 @@
 #define INSTR(_STRING_,_SUBSTR_)    strlen(_STRING_)- strlen(strstr(_STRING_ ,_SUBSTR_))
 #define FTPSYNCCOMMAND(_sysCommand_,  _l_file_, _r_file_  ) sprintf(_sysCommand_,"ftpget  %s  %s %s\\\\%s  %c",GetFtpServerIP(),_l_file_ ,FILEPATH_FTP_PARAMETER,_r_file_,0x00 )
 
+#define echo_vpr(fmt, args...)	  printf("ECHO:::: [%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
 #define echo(fmt, args...)	  printf("ECHO:::: [%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
 #define echoic(fmt, args...)     fprintf(stderr,"echoic:::: [%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
 

@@ -37,6 +37,7 @@ static void Init_DevInit(void)
 	{
 		ICCard_Load();
 	}
+	CPSB_Load();
 	SetCloseDev();	
 }
 static void Init_SEM(void)

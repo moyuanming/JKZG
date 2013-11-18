@@ -126,7 +126,7 @@ int set_Parity(int fd,int databits,int stopbits,int parity)
 	} 
 	return (TRUE);  
 }
-setlines(int fd, int rts, int dtr)
+void setlines(int fd, int rts, int dtr)
 {
 	int lines = 0;
 
@@ -230,25 +230,23 @@ int serial_write(int nCOM,unsigned char *byWriteBuf,int nWriteLen)
 int main(void)
 {
 	int UdpSocket =0;
-	int UdpReket = 0;
 	struct sockaddr_in Socket_SendKey;
 	int i =0;
 	struct MSG_TCOCMD SendMsg;
 	int ret =0;
-	int SocketRecvLen;
 	UdpSocket = CreateUDP();
 	Socket_SendKey.sin_family = AF_INET;
 	Socket_SendKey.sin_port = htons(8880);
 
 	Socket_SendKey.sin_addr.s_addr =inet_addr("127.0.0.1");
 	bzero(&(Socket_SendKey.sin_zero), 8);
-	strncpy(&SendMsg,"000301UX01"TCOCMD_REMOTCOMD"0          ",strlen("000301UX01"TCOCMD_REMOTCOMD"0          "));
+	strncpy((char*)&SendMsg,"000301UX01"TCOCMD_REMOTCOMD"0          ",strlen("000301UX01"TCOCMD_REMOTCOMD"0          "));
 	while(1)
 	for(i=0;i<KeyNumber;i++)
 	{
 		sprintf(SendMsg.Param,"%d%c",KeyValue[i],0x00);
-		ret = UDP_Send(UdpSocket,&SendMsg,Socket_SendKey);		
-		echoic("Send<%d> str=<%s>",ret,&SendMsg);
+		ret = UDP_Send(UdpSocket,(char*)&SendMsg,Socket_SendKey);		
+		echoic("Send<%d> str=<%s>",ret,(char*)&SendMsg);
 		usleep(1000*500);
 	}
 
