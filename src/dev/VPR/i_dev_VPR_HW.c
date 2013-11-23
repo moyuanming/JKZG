@@ -1,5 +1,6 @@
 #include "LocalIncludeFile.h"
 #include "i_dev_VPR_HW.h"
+
 #define SERV_PORT 5000
 #define MAXLEN 102400*5
 int socket_svr = 0;
@@ -106,20 +107,26 @@ void ReceiveMsg(void* argsvr)
 	{
 		/* waiting for receive data */
 		char mesg[4] = {0x00};
-		unsigned char mm[4] = {1,2,3,4};
+		unsigned char mm[4] = {1,2,3,5};
 		echo_vpr("waiting for receive data");
 		recvfrom(*((int *)argsvr), mesg, 4, 0, (struct sockaddr *)&servaddr, &len);
 		if(0 == memcmp(mesg,mm,4))
 		{
-			int piBinLen = 0;
-			int piJpegLen = 0;
 			memset(chPlate,0,16);
-
-			if(TRUE == VPR_GetVehicleInfo((char* )chPlate,&piBinLen,(char*)chTwo,&piJpegLen,(char*)chImage))
+			if(TRUE == VPR_GetVehicleInfo_Plate((char* )chPlate))
 			{
 				echo_vpr("plate:%s\n",chPlate);
-				VPR_HW_SetCPHM((char * )chPlate);
-				FILE *out;
+				if (strlen(chPlate)>0)
+				{
+
+					VPR_HW_SetCPHM((char * )chPlate);
+					i_dev_VPR_ReceivePlate();
+				}
+				else 
+				{
+					echo_vpr("ÎÞ³µÅÆ");
+				}
+			/*	FILE *out;
 				if((out = fopen( FILENAME_SAVE_ImageTEMP"3TEMP.JPG","wab"))!=NULL)
 				{
 					echo_vpr("jpeglen:%d\n",piJpegLen);
@@ -131,7 +138,7 @@ void ReceiveMsg(void* argsvr)
 					echo_vpr("open%d\n",piBinLen);
 					fwrite(chTwo,1,piBinLen,out);
 					fclose(out);
-				}
+				}*/
 			}
 		}
 	}

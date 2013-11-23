@@ -13,7 +13,7 @@ void read_sys_ini_file(void);
 char* GetCSCCOM(void);
 char * GetWeightCOM(void);
 void writelog(int logfd,char *syslog);
-void readItemInsysConfigFile(char *SystemFile,char *ItemName ,char *ItemValue);
+char*  readItemInsysConfigFile(char *SystemFile,char *ItemName ,char *ItemValue);
 void ReadLeanNumber(void);
 struct sys_ini_t  *GetSysConfig(void);
   

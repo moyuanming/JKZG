@@ -17,6 +17,9 @@ struct MSG_FREECARLIST
 #define  LENGHT_MSG_FREECARLIST 64
 int GetCarInfoStaue(void);
 char * GetCarInfo(char *CarNo);
+BOOL * CheckCarInfo(char *CarNo_full);
+BOOL * CheckCarInfo(char *CarNo_full);
+char * GetCarInfo_Ex(char *CarNo_full);
 int  ParseRecordFreeCarList(char *RecordStr,int Rowindex);
 int LoadFreeCarListRecord(int IsFirst);
 #endif //define t_tablename

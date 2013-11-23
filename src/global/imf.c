@@ -358,7 +358,8 @@ BOOL SELECT(char * fileid)
 char _______INITIALIZE_FOR_PURCHASE[8024];
 char * INITIALIZE_FOR_PURCHASE(void)
 {
-	CPUResult *cr;  
+	CPUResult ccc_;
+	CPUResult *cr=&ccc_;  
 	char MAC1[17];
 	memset(MAC1,0x00,17);
 	if (SELECT("1001"))

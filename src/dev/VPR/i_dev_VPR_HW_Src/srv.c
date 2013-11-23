@@ -243,14 +243,22 @@ void FrontinfoRecv (void * socket_fd)
         }
         switch(chData[3])
         {
-        case 0x00:
-            {
-				
-                memcpy(B_S_front_data->D_b_Plate,chData+10,64);
-		printf("srv plate = %s\n",B_S_front_data->D_b_Plate);
-            }
-            break;
- 	case 0x01:
+		case 0x00:
+			{
+
+				memcpy(B_S_front_data->D_b_Plate,chData+10,64);
+				printf("srv plate = %s\n",B_S_front_data->D_b_Plate);
+				printf("receive tail \n");
+                pthread_mutex_lock (&g_mutex);
+				pipei(chPlate,count,(char*)B_S_front_data->D_b_Plate);
+				g_pvinfo=B_S_front_data;
+				pthread_mutex_unlock (&g_mutex);
+				char chData[4] = {1,2,3,5};
+				write(socket_udp, chData, 4);
+				B_S_front_data=0;
+			}
+			break;
+		case 0x01:
             {
 		
                 memcpy(B_S_front_data->D_b_Plate,chData+10,64);

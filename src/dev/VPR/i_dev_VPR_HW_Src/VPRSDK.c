@@ -83,7 +83,30 @@ BOOL VPR_Capture()
 {
     return Trigger();
 }
+BOOL VPR_GetVehicleInfo_Plate(char *pchPlate)
+{
+	 if(pchPlate == NULL)
+    {
+        return FALSE;
+   	}
+    pthread_mutex_lock (&g_mutex);
+    TYPE_STRUCT_Fro_Equi_Data *info=(TYPE_STRUCT_Fro_Equi_Data *)g_pvinfo;
+    g_pvinfo=0;
+    pthread_mutex_unlock (&g_mutex);
+    if(0 == info)
+    {
+        return FALSE;
+    }
+	printf("plate = %s\n",info->D_b_Plate);
+    if(0 == strlen((char *)info->D_b_Plate))
+        strcpy(pchPlate,"ÎÞ³µÅÆ");
+    else
+        strcpy(pchPlate,(char *)info->D_b_Plate);
+    int nLen = 280;
+    free(info);
+    return TRUE;
 
+}
 BOOL VPR_GetVehicleInfo(char *pchPlate,int *piByteBinImagLen,BYTE *pByteBinImage,int *piJpegImageLen,BYTE *pByteJpegImage)
 {
     if(pchPlate == NULL || piByteBinImagLen == NULL || piJpegImageLen == NULL || pByteJpegImage == NULL)

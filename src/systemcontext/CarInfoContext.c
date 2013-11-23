@@ -438,7 +438,7 @@ char *GetG_Current_Handl_Car_Type(void)
 {	
     return G_Current_Handl_Car_Type;
 }
-int Get_Current_Car_Type_Index()
+int Get_Current_Car_Type_Index(void)
 {	
 	int ret = -1;
 	ret=atoi(GetG_Current_Handl_Car_Type())-1;

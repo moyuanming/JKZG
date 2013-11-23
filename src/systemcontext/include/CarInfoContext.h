@@ -56,6 +56,7 @@ void SetinCarTeamOtherCar(BOOL   value);
 BOOL  GetinCarTeamOtherCar(void);
 void SetG_Current_Handl_Car_Type(char  *value);
 char *GetG_Current_Handl_Car_Type(void);
+int Get_Current_Car_Type_Index(void);
 void SetG_Current_Handl_Car_Kind(char  *value);
 char *GetG_Current_Handl_Car_Kind(void);
 void SetG_Current_Handl_Car_Kind_INT(int value);

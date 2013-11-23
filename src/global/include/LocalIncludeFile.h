@@ -92,7 +92,7 @@
 #include "videodev2.h"
 #include "DoubleLane.h"
 #include "TrafficStat.h"
-
+#include "i_dev_VPR.h"
 #define INSTR(_STRING_,_SUBSTR_)    strlen(_STRING_)- strlen(strstr(_STRING_ ,_SUBSTR_))
 #define FTPSYNCCOMMAND(_sysCommand_,  _l_file_, _r_file_  ) sprintf(_sysCommand_,"ftpget  %s  %s %s\\\\%s  %c",GetFtpServerIP(),_l_file_ ,FILEPATH_FTP_PARAMETER,_r_file_,0x00 )
 

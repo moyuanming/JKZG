@@ -414,9 +414,6 @@
     <ClCompile Include="src\dev\Print\i_dev_S303_printer.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\My Documents\Desktop\i_dev_TFI_SG.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="src\dev\TFI\i_dev_TFI_SG.c">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -813,9 +810,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\dev\include\i_dev_TFI_HN.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\My Documents\Desktop\i_dev_TFI_SG.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\dev\include\i_dev_TFI_SG.h">

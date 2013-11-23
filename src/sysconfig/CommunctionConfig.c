@@ -9,7 +9,7 @@
 // ***************************************************************
 #include "LocalIncludeFile.h"
 char address[25];
-static Setaddress(char *Input)
+static void Setaddress(char *Input)
 {
 	memset(address,0x00,25);
 	strcpy(address,Input);
@@ -23,7 +23,7 @@ char *Getgateway(void)
 {
 	return gateway;
 }
-static Setgateway(char *Input)
+static  void Setgateway(char *Input)
 {
 	memset(gateway,0x00,25);
 	strcpy(gateway,Input);

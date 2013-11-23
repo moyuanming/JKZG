@@ -49,7 +49,7 @@ static void Init_SEM(void)
 }
 
 
-static Init_Config()
+static void  Init_Config(void)
 {
 	LoadAppFunction();
 	LoadCommunctionConfig();
@@ -58,20 +58,20 @@ static Init_Config()
 	read_sys_ini_file();
 	InitKeyBoard_KeyMap(); 
 }
-static Init_Parameter()
+static void  Init_Parameter(void)
 {
 
 	LoadCurrentUseParameterVersionNumber();
 	LoadParameter(ISLOADFIRST);	
 	LoadLanKey();
 }
-static Init_MsgThread()
+static void Init_MsgThread(void)
 {
 	DB_Init();	
 	Init_UDP_Socket();
 	Init_TCP_Socket();
 }
-static Init_Message()
+static void  Init_Message(void)
 {
 	LoadMemSyncFile();
 	InitMsgMsgGR();	
@@ -109,7 +109,7 @@ void system_close(void)
     return;
 }
 
-void readItemInsysConfigFile(char *SystemFile,char *ItemName ,char *ItemValue)
+char * readItemInsysConfigFile(char *SystemFile,char *ItemName ,char *ItemValue)
 {	
     char *ini_addr_ptr;
     int len;

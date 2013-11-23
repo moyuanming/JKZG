@@ -96,7 +96,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\My Documents\Desktop\i_dev_TFI_SG.c" />
     <ClCompile Include="src\7134sdk\7134sdk.cpp" />
     <ClCompile Include="src\7134sdk\audiodev.cpp" />
     <ClCompile Include="src\7134sdk\devhelper.cpp" />
@@ -249,7 +248,6 @@
     <ClCompile Include="src\workflow\workstate_Urgent.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\My Documents\Desktop\i_dev_TFI_SG.h" />
     <ClInclude Include="src\7134sdk\7134sdk.h" />
     <ClInclude Include="src\7134sdk\7134_sdk.h" />
     <ClInclude Include="src\7134sdk\audiodev.h" />

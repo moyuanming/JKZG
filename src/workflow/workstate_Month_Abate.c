@@ -90,7 +90,6 @@ void WorkStation_23_Abate(int nKey)
 
 void WorkStation_204_FreeCar(int nKey)
 {
-	int MaxLengh;
 	char temp[500];
 	static int is_return =F;
 	switch (nKey)
@@ -121,9 +120,16 @@ void WorkStation_204_FreeCar(int nKey)
 		break;
 	case VK_RETURN:
 		
+		echo_vpr("pGetG_AbateNumber()=%s is_return=%d",GetG_AbateNumber(),is_return);
 		if(strlen( GetG_AbateNumber())<=3&&is_return==F)
 		{
 			sprintf(temp,"提示：\n请核对信息：\n%s\n按【确认】键返回。\n按【公务】键直接放行\n按【取消】键取消。",GetCarInfo(GetG_AbateNumber()));
+			UI_Show_Info(temp);
+			is_return=T;
+		}
+		else if(strlen(GetCPHM())>=5 && is_return==F)
+		{
+			sprintf(temp,"提示：\n请核对信息：\n%s\n按【确认】键返回。\n按【公务】键直接放行\n按【取消】键取消。",GetCarInfo_Ex( GetCPHM()));
 			UI_Show_Info(temp);
 			is_return=T;
 		}
@@ -140,7 +146,7 @@ void WorkStation_204_FreeCar(int nKey)
 		}
 		break;
 	case VK_GONGWU:
-		if(strlen( GetG_AbateNumber())<=3&&is_return==T)
+		if(is_return==T)
 		{
 			if(GetCarInfoStaue()==T)
 			{

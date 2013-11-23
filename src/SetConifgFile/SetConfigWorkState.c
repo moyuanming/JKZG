@@ -655,4 +655,4 @@ void WorkStation_203_SetDevConfig(int nKey)
 		break;
 	}
 }
-      
+
