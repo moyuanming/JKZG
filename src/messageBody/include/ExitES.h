@@ -69,6 +69,7 @@ struct MSG_EXITES
 
 
 void InitMsgExitES(void);
+struct MSG_NewTifficStat *GetMsgNewExitES(void);
 struct MSG_EXITES *GetMsgExitES(void);
 void SetExitESMsgCollectorType(char InputCollectorType);
 void SetExitESMsgWorkStaus(char InputWorkStaus);

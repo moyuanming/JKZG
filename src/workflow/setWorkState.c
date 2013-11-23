@@ -438,13 +438,13 @@ By:王海伟
 ******************************************************/
 void Set_WorkStation_53_SimulateOnceOkTuoche()
 {   
-	UI_ShowMenu("模拟菜单","提示：\n请选择模拟类型：%s","1、更改车型\n2、更改车种");
+	UI_ShowMenu("模拟菜单","提示：\n请选择模拟类型：\n%s","1、更改车型\n2、更改车种");
 	Set_WorkStation(53);    
 	Setg_CurrentLaneState(8);   
 }
 void Set_WorkStation_46_SimulateTwoOk()
 {   
-	UI_ShowMenu("模拟菜单","提示：\n请选择模拟类型：%s","1、过车模拟\n2、重打票据");
+	UI_ShowMenu("模拟菜单","提示：\n请选择模拟类型：\n%s","1、过车模拟\n2、重打票据");
 	Set_WorkStation(46);    
 	Setg_CurrentLaneState(8);   
 }

@@ -57,7 +57,7 @@ int KeyValue[KeyNumber]=
 } ;
 
 int Index = 0;
-void AutoManHandl()
+void AutoManHandl(void)
 {
 	if(GetUseAutoMan())
 	{

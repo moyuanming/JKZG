@@ -146,7 +146,8 @@ void WorkStation_204_FreeCar(int nKey)
 		}
 		break;
 	case VK_GONGWU:
-		if(is_return==T)
+		echo_vpr("is_return=%d GetCarInfoStaue=%d ",is_return,GetCarInfoStaue());
+		if(is_return==T)//这里是为了 兼容手工输入和车牌识别
 		{
 			if(GetCarInfoStaue()==T)
 			{
@@ -159,6 +160,13 @@ void WorkStation_204_FreeCar(int nKey)
 			{
 				UI_Show_Help_Info("未查到车！请按【确认】键返回。或按【取消】键取消。");
 			}
+		}
+		else if (CheckCarInfo(GetCPHM())==T)
+		{
+			UI_SetCarType(VK_1);
+			HandOnceOK(nKey,4);
+			InitG_AbateNumber();
+			is_return=F;
 		}
 		else
 		{

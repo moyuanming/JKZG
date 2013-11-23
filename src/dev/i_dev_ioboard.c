@@ -39,6 +39,9 @@ void I_DEV_IOBoard_Callback(unsigned char Input)
 		bt=(char)Input;
 		ReadDeviceStatus_Loop(2, bt, oldbt );//到达线圈
 		ReadDeviceStatus_Loop(3, bt, oldbt );//离开线圈
+		ReadDeviceStatus_Loop(5, bt, oldbt );//离开线圈
+		ReadDeviceStatus_Loop(6, bt, oldbt );//离开线圈
+		echo_vpr("%d ",Input);
 		oldStatus=Input;
 		oldbt=oldStatus;
 	}

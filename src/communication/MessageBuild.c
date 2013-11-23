@@ -40,7 +40,7 @@ struct MSG_SubHead  *GetSystemInfor(void)
 }
 char IDTemp[18];
 int IDIndex = 0;
-char * CreateMessageID()
+char * CreateMessageID(void)
 {	
 	unsigned int msc ;
 	char Temp[20];

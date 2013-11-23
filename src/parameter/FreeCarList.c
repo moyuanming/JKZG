@@ -14,8 +14,8 @@ int LoadFreeCarListRecord(int IsFirst)
 	return ret;
 }
 char TempCarInfo[200];
-int is_GetCarInfo = F;
-int GetCarInfoStaue(void)
+BOOL  is_GetCarInfo = F;
+BOOL GetCarInfoStaue(void)
 {
 	return is_GetCarInfo;
 }
@@ -45,39 +45,38 @@ char * GetCarInfo(char *CarNo)
 	}
 	return TempCarInfo;
 }
-BOOL * CheckCarInfo(char *CarNo_full)
+BOOL   CheckCarInfo(char *CarNo_full)
 {
 	int i = 0;
-	BOOL result=F;
+	BOOL is_GetCarInfo=F;
 	char CarNo[20];
 	int Count = atoi(FreeCarListHead.Recordcount);
+	memset(CarNo,0x00,sizeof(CarNo));
 	strncpy(CarNo,(char*)&CarNo_full[3],5);
 	echo_vpr("CarNo=%s CarNo_full=%s ",CarNo,CarNo_full);
 	for(i=0;i<Count;i++)
 	{
 		if(0==strncmp(CarNo,(char*)FreeCarListRecordTable[i].CarNo,5))
 		{
-			result = T;
+			is_GetCarInfo=T ;
 			break;
 		}
 	}
-	return result;
+	return is_GetCarInfo ;
 }
 
  
-char * GetCarInfo_Ex(char *CarNo_full)
+char * GetCarInfo_Ex(char *CarNo)
 {
 	int i = 0;
-	char CarNo[20];
 	int Count = atoi(FreeCarListHead.Recordcount);
 	int Flag = 0;
 	memset(TempCarInfo,0x00,200);
-	memset(CarNo,0x00,sizeof(20));
 	is_GetCarInfo = T;
-	strncpy(CarNo,(char*)&CarNo_full[3],5);
-	echo_vpr("CarNo=%s CarNo_full=%s ",CarNo,CarNo_full);
+	echo_vpr("CarNo=%s CarNo=%s ",CarNo,CarNo);
 	for(i=0;i<Count;i++)
 	{
+
 		if(0==strncmp(CarNo,(char*)FreeCarListRecordTable[i].CarNo,5))
 		{
 			strncpy(&TempCarInfo[Flag],FreeCarListRecordTable[i].CarCode,5);
@@ -85,6 +84,8 @@ char * GetCarInfo_Ex(char *CarNo_full)
 			strncpy(&TempCarInfo[Flag+10],FreeCarListRecordTable[i].Units,15);
 			TempCarInfo[Flag+25] = '\n';
 			Flag +=26 ;
+			is_GetCarInfo = T;
+			break;
 		}
 	}
 	if(0==Flag)

@@ -146,14 +146,14 @@ void i_dev_VPR_ReceivePlate(void )
 	if (strncmp(CarNo,"无车牌",6)!=0)
 	{
 		echo_vpr("有车牌号  %s",GetCPHM());
-		if (CheckCarInfo(GetCPHM())  && (GetWorkState()==3  ||  GetWorkState()==4 || GetWorkState()==49  ))
+		if (CheckCarInfo(GetCPHM())==T && (GetWorkState()==3  ||  GetWorkState()==4 || GetWorkState()==49  ))
 		{
 			char temp[200];
 			memset(temp,0x00,sizeof(temp));
-			Set_WorkStation_204_FreeCar();
+			InitG_AbateNumber();
 			SetG_AbateNumber(CarNo);
 			WorkStation_204_FreeCar(VK_GONGWU);
-			sprintf(temp,"提示：\n请核对信息：\n%s\n按【确认】键返回。\n按【公务】键直接放行\n按【取消】键取消。",GetCarInfo(GetG_AbateNumber()));
+			sprintf(temp,"提示：\n请核对公务车信息：\n%s\n按【确认】键直接放行\n按【模拟】键处理拖车、更改车型、车种。",GetCarInfo_Ex(CarNo));
 			UI_Show_Info(temp);
 		}
 	}

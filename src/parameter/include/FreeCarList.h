@@ -15,10 +15,9 @@ struct MSG_FREECARLIST
       char EndDate[8];
 };//endstructFreeCarList
 #define  LENGHT_MSG_FREECARLIST 64
-int GetCarInfoStaue(void);
+BOOL  GetCarInfoStaue(void);
 char * GetCarInfo(char *CarNo);
-BOOL * CheckCarInfo(char *CarNo_full);
-BOOL * CheckCarInfo(char *CarNo_full);
+BOOL  CheckCarInfo(char *CarNo_full);
 char * GetCarInfo_Ex(char *CarNo_full);
 int  ParseRecordFreeCarList(char *RecordStr,int Rowindex);
 int LoadFreeCarListRecord(int IsFirst);
