@@ -49,7 +49,7 @@ void VPR_HW_Close(void)
 void VPR_HW_ClearCPHM(void)
 {
 	memset(cphm,0x00,sizeof(cphm ));
-		sprintf(cphm,"%s","未识别");
+	sprintf(cphm,"%s","未识别");
 }
 void VPR_HW_SetCPHM(char * _cphm)
 {
@@ -100,11 +100,9 @@ void ReceiveMsg(void* argsvr)
 	servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
 	servaddr.sin_port = htons(SERV_PORT);
 	socklen_t len = sizeof(cliaddr);
-	unsigned char *chImage = malloc(MAXLEN);
-	unsigned char chTwo[280];
 	unsigned char chPlate[16];
 	for(;;)
-	{
+	{ 
 		/* waiting for receive data */
 		char mesg[4] = {0x00};
 		unsigned char mm[4] = {1,2,3,5};
@@ -116,9 +114,8 @@ void ReceiveMsg(void* argsvr)
 			if(TRUE == VPR_GetVehicleInfo_Plate((char* )chPlate))
 			{
 				echo_vpr("plate:%s\n",chPlate);
-				if (strlen(chPlate)>0)
+				if (strlen((char*)chPlate)>0 &&  strncmp((char*)chPlate ,"无车牌",6)!=0)
 				{
-
 					VPR_HW_SetCPHM((char * )chPlate);
 					i_dev_VPR_ReceivePlate();
 				}
@@ -126,21 +123,7 @@ void ReceiveMsg(void* argsvr)
 				{
 					echo_vpr("无车牌");
 				}
-			/*	FILE *out;
-				if((out = fopen( FILENAME_SAVE_ImageTEMP"3TEMP.JPG","wab"))!=NULL)
-				{
-					echo_vpr("jpeglen:%d\n",piJpegLen);
-					fwrite(chImage,1,piJpegLen,out);
-					fclose(out);
-				}
-				if((out = fopen( FILENAME_SAVE_ImageTEMP"3TEMP.BIN","wat"))!=NULL)
-				{
-					echo_vpr("open%d\n",piBinLen);
-					fwrite(chTwo,1,piBinLen,out);
-					fclose(out);
-				}*/
 			}
 		}
 	}
-	free(chImage);
 }

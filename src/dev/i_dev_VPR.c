@@ -141,12 +141,12 @@ void i_dev_VPR_ReceivePlate(void )
 {
 	char CarNo[20];
 	memset(CarNo,0x00,20);
-	strncpy(CarNo,(char*)&GetCPHM()[3],5);
-	echo_vpr("取到的车牌号码是:::::%s   || CarNo: %s",GetCPHM(),CarNo);
-	if (strncmp(CarNo,"无车牌",6)!=0)
+	if (strncmp(GetCPHM(),"无车牌",6)!=0)
 	{
-		echo_vpr("有车牌号  %s",GetCPHM());
-		if (CheckCarInfo(GetCPHM())==T && (GetWorkState()==3  ||  GetWorkState()==4 || GetWorkState()==49  ))
+		strncpy(CarNo,(char*)&GetCPHM()[3],5);
+		echo_vpr("取到的车牌号码是:::::%s   || CarNo: %s",GetCPHM(),CarNo);
+		if ((GetWorkState()==3  ||  GetWorkState()==4 || GetWorkState()==49  )  
+			&& CheckCarInfo(GetCPHM())==T  )
 		{
 			char temp[200];
 			memset(temp,0x00,sizeof(temp));

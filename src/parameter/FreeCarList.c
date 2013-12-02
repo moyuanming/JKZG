@@ -50,7 +50,11 @@ BOOL   CheckCarInfo(char *CarNo_full)
 	int i = 0;
 	BOOL is_GetCarInfo=F;
 	char CarNo[20];
-	int Count = atoi(FreeCarListHead.Recordcount);
+	char tempxxxx[10];
+	int Count;
+	memset (tempxxxx,0x00,sizeof(tempxxxx));
+	strncpy(tempxxxx,FreeCarListHead.Recordcount,sizeof(FreeCarListHead.Recordcount));
+	 Count= atoi(tempxxxx);
 	memset(CarNo,0x00,sizeof(CarNo));
 	strncpy(CarNo,(char*)&CarNo_full[3],5);
 	echo_vpr("CarNo=%s CarNo_full=%s ",CarNo,CarNo_full);
@@ -69,7 +73,10 @@ BOOL   CheckCarInfo(char *CarNo_full)
 char * GetCarInfo_Ex(char *CarNo)
 {
 	int i = 0;
-	int Count = atoi(FreeCarListHead.Recordcount);
+	char tempxxxx[10];
+	memset (tempxxxx,0x00,sizeof(tempxxxx));
+	strncpy(tempxxxx,FreeCarListHead.Recordcount,sizeof(FreeCarListHead.Recordcount));
+	int Count = atoi(tempxxxx);
 	int Flag = 0;
 	memset(TempCarInfo,0x00,200);
 	is_GetCarInfo = T;

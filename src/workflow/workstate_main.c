@@ -471,10 +471,6 @@ void WorkStation_07_General_Second_OK(int nKey)
 			}
 			CaptureImg('0');
 			break;
-		case VK_DOWN:
-			LogCAppLogDebug("Ç¿ÖÆÂä¸É");
-			SetLanGan(F);
-			break;
 		case VK_QIANKUAN:
 			Set_WorkStation_42_HandArrearageNumber(7);
 			break;
